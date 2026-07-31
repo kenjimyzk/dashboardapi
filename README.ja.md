@@ -1,4 +1,4 @@
-[English](README.md) | 日本語
+[English](https://github.com/kenjimyzk/dashboardapi/blob/main/README.md) | 日本語
 
 # dashboardapi
 

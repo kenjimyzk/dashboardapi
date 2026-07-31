@@ -1,16 +1,27 @@
+## Resubmission
+
+This is a resubmission. In response to the CRAN review, I replaced the
+relative `README.ja.md` link in `README.md` with an absolute GitHub URL. This
+prevents the link from being interpreted as the invalid URI
+`http://readme.ja.md/`.
+
 ## Test environments
 
 - local macOS Tahoe 26.6 (arm64), R 4.6.1
 
 ## R CMD check results
 
-The local source tarball completed `R CMD check --as-cran` with:
+The rebuilt source tarball completed `R CMD check --as-cran`, including CRAN
+incoming feasibility and remote URL checks, with:
 
 0 errors | 0 warnings | 2 notes
 
-The notes are expected for a new submission and for local HTML-manual
-validation being skipped because the installed HTML Tidy is not recent enough.
-No package HTML error was reported.
+The notes are:
+
+- the expected `New submission` note for version 0.1.0;
+- local HTML validation was skipped because the installed HTML Tidy is too old.
+
+The invalid README file URI reported in the previous review no longer appears.
 
 The check included package installation, examples, deterministic tests,
 vignette rebuilding, and PDF-manual generation.
