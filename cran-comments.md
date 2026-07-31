@@ -4,9 +4,13 @@
 
 ## R CMD check results
 
-The local source tarball completed `R CMD check` with:
+The local source tarball completed `R CMD check --as-cran` with:
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 2 notes
+
+The notes are expected for a new submission and for local HTML-manual
+validation being skipped because the installed HTML Tidy is not recent enough.
+No package HTML error was reported.
 
 The check included package installation, examples, deterministic tests,
 vignette rebuilding, and PDF-manual generation.
@@ -29,4 +33,3 @@ and bilingual documentation.
 ## Downstream dependencies
 
 There are no downstream CRAN dependencies because this is a new package.
-
