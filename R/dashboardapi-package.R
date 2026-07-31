@@ -22,11 +22,15 @@
 #' - `dashboardapi.retries`: retries for transient failures; default `3`.
 #'
 #' @section Terms of use:
-#' Services published using the API should show the credit requested by the
-#' Statistics Dashboard. Call [dashboard_api_credit()] for the current wording
-#' copied from the official API page and for the official links. The package's
-#' MIT license applies only to original package code and documentation; it does
-#' not relicense government or third-party data, metadata, or official texts.
+#' When publishing content retrieved with this package, cite the Statistics
+#' Dashboard as the source. When publishing edited content, also identify the
+#' editing entity. Services published using the API should show the credit
+#' requested by the Statistics Dashboard. Call [dashboard_api_credit()] for
+#' the source citation, edited-content template, API credit, and official
+#' links. The package's MIT license applies only to original package code and
+#' documentation; it does not relicense government or third-party data,
+#' metadata, or official texts. Check any individual rights statement before
+#' reusing third-party content.
 #'
 #' @seealso
 #' [Statistics Dashboard API](https://dashboard.e-stat.go.jp/en/static/api)
@@ -37,4 +41,3 @@
 .dashboardapi_base_url <- "https://dashboard.e-stat.go.jp/api/1.0/Json"
 .dashboardapi_max_indicators <- 5L
 .dashboardapi_max_regions <- 50L
-

@@ -115,15 +115,25 @@ dashboard_surveys(query = "Population Census", lang = "en")
 dashboard_codes("cycle")
 ```
 
-## Responsible API use
+## Responsible API use and attribution
 
 The official page asks users not to produce a large access volume in a short
 period. `dashboard_data()` batches vectors longer than the documented
-per-request limits and waits at least one second between calls. Before
-publishing a service, review the current official page and its requested
-credit:
+per-request limits and waits at least one second between calls.
+
+When publishing content retrieved from the Statistics Dashboard, cite the
+source. If content or data are edited, identify both the editing and its
+entity. A published service using the API must also display the specified API
+credit. `dashboard_api_credit()` returns all three strings; replace `<entity>`
+before publishing edited content:
 
 ```{r}
-dashboard_api_credit("en")
+attribution <- dashboard_api_credit("en")
+attribution$source
+attribution$processed
+attribution$credit
 ```
 
+Individual rights statements, including those for third-party content, take
+precedence over the general public-data terms. Review the current official
+terms before publication.

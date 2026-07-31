@@ -116,18 +116,30 @@ have class `dashboard_http_error`, and unexpected structures have class
 `dashboard_parse_error`. A successful no-data response issues a
 `dashboard_no_data_warning` and returns a typed empty tibble.
 
-## Credit for public services
+## Attribution and credit for public services
 
-If you publish a service using this API, check the current official terms and
-display the requested credit:
+The official Copyright Policy distinguishes three requirements when content
+from the Statistics Dashboard is published:
+
+1. Cite the source.
+2. If content or data are edited, say so and identify the editing entity.
+3. If a service uses the API, display the specified API credit.
+
+`dashboard_api_credit()` returns the corresponding source citation,
+edited-content template, and API credit. Replace `<entity>` before publishing
+edited content:
 
 ```r
-dashboard_api_credit("en")
+attribution <- dashboard_api_credit("en")
+attribution$source
+attribution$processed
+attribution$credit
 ```
 
 `dashboardapi` is independently developed and is not affiliated with or
 endorsed by the Statistics Bureau of Japan. Its MIT license does not relicense
 government or third-party data, metadata, code systems, or official texts.
+Check any individual rights statement before reusing third-party content.
 
 ## Official documentation
 

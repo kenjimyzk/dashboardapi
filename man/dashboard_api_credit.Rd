@@ -2,7 +2,7 @@
 % Please edit documentation in R/credit.R
 \name{dashboard_api_credit}
 \alias{dashboard_api_credit}
-\title{Return the Statistics Dashboard API credit}
+\title{Return Statistics Dashboard attribution and API credit}
 \usage{
 dashboard_api_credit(lang = c("en", "jp"))
 }
@@ -10,13 +10,15 @@ dashboard_api_credit(lang = c("en", "jp"))
 \item{lang}{Credit language, \code{"en"} or \code{"jp"}.}
 }
 \value{
-A named list containing the requested credit and official API and
-site-policy URLs.
+A named list containing \code{source} (the required source citation),
+\code{processed} (a template for edited content), \code{credit} (the required API
+service credit), and official URLs.
 }
 \description{
-The Statistics Dashboard asks publishers of services using the API to show
-a specified credit. The terms can change, so verify the linked official page
-before publishing a service.
+The Statistics Dashboard asks users of its content to cite the source. When
+publishing edited content, identify the editing entity as well. Publishers of
+services using the API must also show a specified credit. The terms can
+change, so verify the linked official page before publication.
 }
 \examples{
 dashboard_api_credit("en")

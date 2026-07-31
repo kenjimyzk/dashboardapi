@@ -42,11 +42,20 @@ test_that("dashboard_data batches indicators and preserves aliases", {
 
 test_that("credit and common code tables are available offline", {
   credit <- dashboard_api_credit("jp")
+  expect_identical(
+    credit$source,
+    "出典：統計ダッシュボード（https://dashboard.e-stat.go.jp/）"
+  )
+  expect_match(credit$processed, "<作成主体>", fixed = TRUE)
   expect_match(credit$credit, "統計ダッシュボード", fixed = TRUE)
+  expect_match(
+    dashboard_api_credit("en")$credit,
+    "This service uses the API feature of Statistics Dashboard",
+    fixed = TRUE
+  )
   expect_equal(nrow(dashboard_codes("cycle")), 4L)
   expect_identical(
     dashboard_codes("seasonal", "jp")$name,
     c("原数値", "季節調整値")
   )
 })
-
