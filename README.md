@@ -2,6 +2,8 @@ English | [日本語](README.ja.md)
 
 # dashboardapi
 
+[![R-CMD-check](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml)
+
 `dashboardapi` is an unofficial R package for accessing the Statistics
 Dashboard Web API provided by the Statistics Bureau of Japan. The API requires
 no registration or API key.
@@ -26,17 +28,17 @@ as a tidy data frame.
 
 ## Installation
 
-Install the development version from the repository root:
+Install the development version from GitHub:
 
 ```r
 install.packages("remotes")
-remotes::install_local(".")
+remotes::install_github("kenjimyzk/dashboardapi")
 ```
 
-After the repository is published, it can be installed from GitHub with:
+To install from a local clone of the repository:
 
 ```r
-remotes::install_github("kenjimyzk/dashboardapi")
+remotes::install_local(".")
 ```
 
 ## Quick start

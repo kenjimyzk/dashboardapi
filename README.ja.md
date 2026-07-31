@@ -2,6 +2,8 @@
 
 # dashboardapi
 
+[![R-CMD-check](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml)
+
 `dashboardapi` は、総務省統計局の「統計ダッシュボード WebAPI」へ
 アクセスするための非公式 R パッケージです。API キーや利用登録は不要です。
 
@@ -24,17 +26,18 @@
 
 ## インストール
 
-リポジトリのルートから開発版をインストールできます。
+GitHub から開発版をインストールできます。
 
 ```r
 install.packages("remotes")
-remotes::install_local(".")
+remotes::install_github("kenjimyzk/dashboardapi")
 ```
 
-GitHub で公開後は、次の方法でもインストールできます。
+リポジトリをクローンしたローカルディレクトリからインストールする場合は、
+次のように実行します。
 
 ```r
-remotes::install_github("kenjimyzk/dashboardapi")
+remotes::install_local(".")
 ```
 
 ## クイックスタート
