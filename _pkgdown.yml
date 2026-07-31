@@ -1,0 +1,22 @@
+url: https://kenjimyzk.github.io/dashboardapi/
+
+template:
+  bootstrap: 5
+
+reference:
+- title: Discover metadata
+  contents:
+  - dashboard_search
+  - dashboard_indicators
+  - dashboard_regions
+  - dashboard_terms
+  - dashboard_events
+  - dashboard_surveys
+- title: Retrieve data
+  contents:
+  - dashboard_data
+- title: Codes and terms
+  contents:
+  - dashboard_codes
+  - dashboard_api_credit
+

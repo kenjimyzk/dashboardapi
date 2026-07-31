@@ -1,0 +1,129 @@
+---
+title: "Getting started with dashboardapi"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with dashboardapi}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
+```
+
+`dashboardapi` implements a three-step workflow for Japan's Statistics
+Dashboard: discover an indicator, identify regions, and retrieve observations.
+No API key is required.
+
+## Discover an indicator
+
+```{r}
+library(dashboardapi)
+
+meta <- dashboard_search(
+  "Total population (Both sexes)",
+  lang = "en"
+)
+
+meta[, c(
+  "indicator_code", "name", "cycle_name", "regional_rank_name",
+  "seasonal_name", "unit", "from_time", "to_time"
+)]
+```
+
+The 19-digit `indicator_code` identifies a statistical concept. An indicator
+can have several *indicator elements*, distinguished by cycle, regional rank,
+and original/seasonally adjusted status. The package retains both codes:
+`indicator_code` and the derived 25-digit `indicator_element_code`.
+
+## Find region codes
+
+```{r}
+prefectures <- dashboard_regions(
+  parent_region_code = "00000",
+  lang = "en"
+)
+
+prefectures[, c("region_code", "region", "level")]
+```
+
+For Japanese geography, parent code `"00000"` returns prefectures. A
+prefecture code can then be used as `parent_region_code` to discover its
+municipalities. Country-level series use three-letter ISO codes.
+
+## Retrieve observations
+
+```{r}
+population <- dashboard_data(
+  indicator_code = c(population = "0201010000000010000"),
+  region_code = "00000",
+  time_from = "2020CY00",
+  time_to = "2024CY00",
+  cycle = "year",
+  regional_rank = "japan",
+  seasonal = "original",
+  lang = "en"
+)
+
+population[, c("indicator", "region", "time", "date", "unit", "value")]
+```
+
+Names on `indicator_code` create aliases. Long output retains the API's raw
+dimension codes and labels, the original value text, parsed numeric values,
+provisional status, and cell annotations.
+
+## Time codes
+
+The API uses eight-character period codes:
+
+| Meaning | API code | `date` |
+|---|---|---|
+| January 2024 | `20240100` | 2024-01-01 |
+| 2024 Q2 | `20242Q00` | 2024-04-01 |
+| Calendar year 2024 | `2024CY00` | 2024-01-01 |
+| Fiscal year 2024 | `2024FY00` | 2024-04-01 |
+
+`time` is authoritative; `date` is a convenient first-day representation.
+
+## Wide output
+
+```{r}
+wide <- dashboard_data(
+  indicator_code = c(
+    population = "0201010000000010000",
+    japanese_population = "0201020000000010000"
+  ),
+  region_code = "00000",
+  time_from = "2020CY00",
+  time_to = "2024CY00",
+  cycle = "year",
+  regional_rank = "japan",
+  seasonal = "original",
+  wide = TRUE
+)
+```
+
+If a query would produce more than one value for a wide-output cell, the
+package asks you to add cycle, regional-rank, seasonal, or survey filters.
+
+## Auxiliary metadata
+
+```{r}
+dashboard_terms(category = "0201", lang = "en")
+dashboard_events(category = "0201", level = "high", lang = "en")
+dashboard_surveys(query = "Population Census", lang = "en")
+dashboard_codes("cycle")
+```
+
+## Responsible API use
+
+The official page asks users not to produce a large access volume in a short
+period. `dashboard_data()` batches vectors longer than the documented
+per-request limits and waits at least one second between calls. Before
+publishing a service, review the current official page and its requested
+credit:
+
+```{r}
+dashboard_api_credit("en")
+```
+
