@@ -3,6 +3,7 @@
 # dashboardapi
 
 [![R-CMD-check](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/dashboardapi)](https://CRAN.R-project.org/package=dashboardapi)
 
 `dashboardapi` は、総務省統計局の「統計ダッシュボード WebAPI」へ
 アクセスするための非公式 R パッケージです。API キーや利用登録は不要です。
@@ -26,7 +27,13 @@
 
 ## インストール
 
-GitHub から開発版をインストールできます。
+CRAN から公開版をインストールできます。
+
+```r
+install.packages("dashboardapi")
+```
+
+GitHub から開発版をインストールする場合は、次のように実行します。
 
 ```r
 install.packages("remotes")
