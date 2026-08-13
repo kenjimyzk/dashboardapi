@@ -3,6 +3,7 @@ English | [日本語](https://github.com/kenjimyzk/dashboardapi/blob/main/README
 # dashboardapi
 
 [![R-CMD-check](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kenjimyzk/dashboardapi/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/dashboardapi)](https://CRAN.R-project.org/package=dashboardapi)
 
 `dashboardapi` is an unofficial R package for accessing the Statistics
 Dashboard Web API provided by the Statistics Bureau of Japan. The API requires
@@ -28,7 +29,13 @@ as a tidy data frame.
 
 ## Installation
 
-Install the development version from GitHub:
+Install the released version from CRAN:
+
+```r
+install.packages("dashboardapi")
+```
+
+To install the development version from GitHub:
 
 ```r
 install.packages("remotes")
