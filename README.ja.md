@@ -54,7 +54,7 @@ library(dashboardapi)
 
 # 1. 系列を検索
 population_meta <- dashboard_search(
-  "総人口（男女計）",
+  "総人口",
   lang = "jp"
 )
 
